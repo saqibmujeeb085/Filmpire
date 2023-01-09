@@ -14,8 +14,23 @@ export default makeStyles((theme) => ({
 
   menuButton: {
     marginRight: theme.spacing(2),
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.up("sm")]: {
       display: "none",
     },
   },
+  drawer: {
+    [theme.breakpoints.up("sm")]: {
+      width: '240px',
+      flexShrink: 0,
+    },
+  },
+  drawerPaper: {
+    width: '240px',
+  },
+  linkButton: {
+    '&:hover' : {
+      color: 'white !important',
+      textDecoration: 'none',
+    }
+  }
 }));
