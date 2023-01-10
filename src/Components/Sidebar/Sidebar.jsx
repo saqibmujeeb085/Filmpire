@@ -16,7 +16,8 @@ import Black from "./../../img/Black.png";
 import White from "./../../img/White.png";
 import { useGetGenresQuery } from "../../Services/TMDB";
 import { useDispatch, useSelector } from "react-redux";
-import { genreOrCategory, selectGenreOrCategory } from "../../Features/CurrentGenreOrCategory";
+import genreIcons from '../../img/genres';
+import { selectGenreOrCategory } from "../../Features/CurrentGenreOrCategory";
 
 
 
@@ -49,9 +50,9 @@ const Sidebar = ({ setMobileOpen }) => {
       {Cate2.map(({label, value}) => (
         <Link key={value} className={classes.links} to='/'>
           <ListItem onClick={()=>dispatch(selectGenreOrCategory(value))} button>
-            {/* <ListItemIcon>
-              
-            </ListItemIcon> */}
+                  <ListItemIcon>
+                     <img src={genreIcons[label.toLowerCase()]}className={classes.genreImage} height={25} />
+                  </ListItemIcon>
             <ListItemText primary={label} />
           </ListItem>  
         </Link>
@@ -69,9 +70,9 @@ const Sidebar = ({ setMobileOpen }) => {
       data.genres.map(({name, id}) => (
         <Link key={name} className={classes.links} to='/'>
           <ListItem onClick={()=>dispatch(selectGenreOrCategory(id))} button>
-            {/* <ListItemIcon>
-              
-            </ListItemIcon> */}
+                  <ListItemIcon>
+                     <img src={genreIcons[name.toLowerCase()]}className={classes.genreImage} height={25} />
+                  </ListItemIcon>
             <ListItemText primary={name} />
           </ListItem>  
         </Link>

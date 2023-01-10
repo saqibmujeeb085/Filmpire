@@ -16,7 +16,6 @@ const authSlice = createSlice({
             state.user = action.payload;
             state.isAuthenticated = true;
             state.sessionId = localStorage.getItem('session_id');
-            console.log(3)
 
             localStorage.setItem('accountId', action.payload.id);
 

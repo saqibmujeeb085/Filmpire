@@ -27,12 +27,10 @@ export const fetchToken = async () => {
 
 
 export const createSessionId = async () => {
-    console.log(4)
     const token = localStorage.getItem('request_token');
-    const TMDBKEY = process.env.REACT_APP_TMDB_KEY;
     if(token){
         try {
-                const { data : { session_id } } = await moviesApi.post(`authentication/session/new/?api_key=${TMDBKEY}`, {
+                const { data: { session_id } } = await moviesApi.post(`authentication/session/new`, {
                     request_token: token,
                 });
                 localStorage.setItem('session_id', session_id);
